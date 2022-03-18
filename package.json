@@ -1,0 +1,15 @@
+{
+  "name": "HealthHacks",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "cd backend && yarn && node app.js",
+    "heroku-postbuild": "cd frontend && yarn --production=false && yarn run build",
+    "dev": "concurrently -i \"cd backend && yarn dev\" \"cd frontend && yarn start\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^7.0.0"
+  }
+}
