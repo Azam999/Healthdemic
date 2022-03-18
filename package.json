@@ -1,5 +1,5 @@
 {
-  "name": "HealthHacks",
+  "name": "healthhacks22",
   "version": "1.0.0",
   "scripts": {
     "start": "cd backend && yarn && node app.js",
