@@ -25,6 +25,8 @@ export default function LoginPage() {
 
   return (
     <Container>
+      <Button className="mt-3 mb-3" variant="primary" href="/">❮</Button>
+      <h1>Login</h1>
       <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>

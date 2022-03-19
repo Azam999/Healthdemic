@@ -1,29 +1,129 @@
-import React from 'react';
-import { Container, Card } from 'react-bootstrap';
+import React, { useState } from 'react';
+import axios from 'axios';
+import { Container, Card, Form, Button } from 'react-bootstrap';
 
 export default function DietPlanPage() {
+    const [weight, setWeight] = useState(0);
+    const [height, setHeight] = useState(0);
+    const [age, setAge] = useState(0);
+    const [gender, setGender] = useState('');
+    const [physAct, setPhysAct] = useState(0);
+    const [data, setData] = useState({});
+
+    async function getDietData(e) {
+        e.preventDefault();
+        const res = await axios
+            .get(
+                `http://localhost:4000/api/features/diet-generator?weight=${weight}&height=${height}&age=${age}&gender=${gender}&phys_act=${physAct}`
+            )
+            setData(res.data);
+            console.log(res.data);
+    }
+
+    function foodDesc(food) {
+        if (food) {
+            return food;
+        } else {
+            return 'Not recommended';
+        }
+    }
+
     return (
-        <Container>
-            <h1>Diet Plan</h1>
+        <Container className="mb-5">
+            <Button className="mt-3 mb-3" variant="primary" href="/">❮</Button>
+            <h1>Diet Planner</h1>
+            <div className='mb-5'>
+                <Form>
+                    <Form.Group className='mb-3' controlId='weight'>
+                        <Form.Label>Weight</Form.Label>
+                        <Form.Control
+                            type='text'
+                            placeholder='Weight'
+                            onChange={(e) => setWeight(e.target.value)}
+                        />
+                    </Form.Group>
+                    <Form.Group className='mb-3' controlId='height'>
+                        <Form.Label>Height</Form.Label>
+                        <Form.Control
+                            type='text'
+                            placeholder='Height'
+                            onChange={(e) => setHeight(e.target.value)}
+                        />
+                    </Form.Group>
+                    <Form.Group className='mb-3' controlId='age'>
+                        <Form.Label>Age</Form.Label>
+                        <Form.Control
+                            type='text'
+                            placeholder='Age'
+                            onChange={(e) => setAge(e.target.value)}
+                        />
+                    </Form.Group>
+                    <Form.Group className='mb-3' controlId='gender'>
+                        <Form.Label>Gender</Form.Label>
+                        <Form.Control
+                            type='text'
+                            placeholder='Gender'
+                            onChange={(e) => setGender(e.target.value)}
+                        />
+                    </Form.Group>
+                    <Form.Group className='mb-3' controlId='physAct'>
+                        <Form.Label>
+                            Physical Action
+                            <br />
+                            <ul>
+                                <li>1 - Little to no exercise</li>
+                                <li>2 - Light exercise (1-3 days/week)</li>
+                                <li>3 - Moderate exercise (3-5 days/week)</li>
+                                <li>4 - Heavy exercise (6-7 days/week)</li>
+                                <li>5 - Very heavy exercise (twice/day)</li>
+                            </ul>
+                        </Form.Label>
+                        <Form.Control
+                            type='text'
+                            placeholder='Physical Action'
+                            onChange={(e) => setPhysAct(e.target.value)}
+                        />
+                    </Form.Group>
+                    <Button
+                        variant='primary'
+                        type='submit'
+                        onClick={(e) => getDietData(e)}
+                    >
+                        Create Plan
+                    </Button>
+                </Form>
+            </div>
             <div>
                 <h3>Breakfast</h3>
                 <div className='d-flex flex-row justify-content-around'>
-                    <Card style={{ width: '18rem' }}>
+                    <Card style={{ width: '14rem' }}>
                         <Card.Body>
-                            <Card.Title>Food Name</Card.Title>
-                            <Card.Text>Food Description</Card.Text>
+                            <Card.Title>Fruit</Card.Title>
+                            <Card.Text>{foodDesc(data.breakfast?.fruit)}</Card.Text>
                         </Card.Body>
                     </Card>
-                    <Card style={{ width: '18rem' }}>
+                    <Card style={{ width: '14rem' }}>
                         <Card.Body>
-                            <Card.Title>Food Name</Card.Title>
-                            <Card.Text>Food Description</Card.Text>
+                            <Card.Title>Grains</Card.Title>
+                            <Card.Text>{foodDesc(data.breakfast?.grains)}</Card.Text>
                         </Card.Body>
                     </Card>
-                    <Card style={{ width: '18rem' }}>
+                    <Card style={{ width: '14rem' }}>
                         <Card.Body>
-                            <Card.Title>Food Name</Card.Title>
-                            <Card.Text>Food Description</Card.Text>
+                            <Card.Title>Protein</Card.Title>
+                            <Card.Text>{foodDesc(data.breakfast?.protein)}</Card.Text>
+                        </Card.Body>
+                    </Card>
+                </div>
+            </div>
+            <br />
+            <div>
+                <h3>Snack 1</h3>
+                <div className='d-flex flex-row justify-content-around'>
+                    <Card style={{ width: '14rem' }}>
+                        <Card.Body>
+                            <Card.Title>Snack</Card.Title>
+                            <Card.Text>{foodDesc(data.snack1?.snack)}</Card.Text>
                         </Card.Body>
                     </Card>
                 </div>
@@ -32,22 +132,63 @@ export default function DietPlanPage() {
             <div>
                 <h3>Lunch</h3>
                 <div className='d-flex flex-row justify-content-around'>
-                    <Card style={{ width: '18rem' }}>
+                    <Card style={{ width: '14rem' }}>
                         <Card.Body>
-                            <Card.Title>Food Name</Card.Title>
-                            <Card.Text>Food Description</Card.Text>
+                            <Card.Title>Fruit</Card.Title>
+                            <Card.Text>{foodDesc(data.lunch?.fruit)}</Card.Text>
                         </Card.Body>
                     </Card>
-                    <Card style={{ width: '18rem' }}>
+                    <Card style={{ width: '14rem' }}>
                         <Card.Body>
-                            <Card.Title>Food Name</Card.Title>
-                            <Card.Text>Food Description</Card.Text>
+                            <Card.Title>Grains</Card.Title>
+                            <Card.Text>{foodDesc(data.lunch?.grains)}</Card.Text>
                         </Card.Body>
                     </Card>
-                    <Card style={{ width: '18rem' }}>
+                    <Card style={{ width: '14rem' }}>
                         <Card.Body>
-                            <Card.Title>Food Name</Card.Title>
-                            <Card.Text>Food Description</Card.Text>
+                            <Card.Title>Protein</Card.Title>
+                            <Card.Text>
+                                <ol>
+                                    <li>{foodDesc(data.lunch?.protein)}</li>
+                                    <li>{foodDesc(data.lunch?.protein2)}</li>
+                                </ol>
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                    <Card style={{ width: '14rem' }}>
+                        <Card.Body>
+                            <Card.Title>Taste Enhancer</Card.Title>
+                            <Card.Text>{foodDesc(data.lunch?.taste_enhancer)}</Card.Text>
+                        </Card.Body>
+                    </Card>
+                    <Card style={{ width: '14rem' }}>
+                        <Card.Body>
+                            <Card.Title>Vegetables</Card.Title>
+                            <Card.Text>
+                                <ol>
+                                    <li>{foodDesc(data.lunch?.vegetable)}</li>
+                                    <li>{foodDesc(data.lunch?.vegetable2)}</li>
+                                    <li>{foodDesc(data.lunch?.vegetable3)}</li>
+                                </ol>
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                </div>
+            </div>
+            <br />
+            <div>
+                <h3>Snack 2</h3>
+                <div className='d-flex flex-row justify-content-around'>
+                    <Card style={{ width: '14rem' }}>
+                        <Card.Body>
+                            <Card.Title>Snack</Card.Title>
+                            <Card.Text>{foodDesc(data.snack2?.snack)}</Card.Text>
+                        </Card.Body>
+                    </Card>
+                    <Card style={{ width: '14rem' }}>
+                        <Card.Body>
+                            <Card.Title>Vegetables</Card.Title>
+                            <Card.Text>{foodDesc(data.snack2?.vegetable)}</Card.Text>
                         </Card.Body>
                     </Card>
                 </div>
@@ -56,22 +197,48 @@ export default function DietPlanPage() {
             <div>
                 <h3>Dinner</h3>
                 <div className='d-flex flex-row justify-content-around'>
-                    <Card style={{ width: '18rem' }}>
+                    <Card style={{ width: '14rem' }}>
                         <Card.Body>
-                            <Card.Title>Food Name</Card.Title>
-                            <Card.Text>Food Description</Card.Text>
+                            <Card.Title>Grains</Card.Title>
+                            <Card.Text>
+                                <ol>
+                                    <li>{foodDesc(data.dinner?.grains)}</li>
+                                    <li>{foodDesc(data.dinner?.grains2)}</li>
+                                </ol>
+                            </Card.Text>
                         </Card.Body>
                     </Card>
-                    <Card style={{ width: '18rem' }}>
+                    <Card style={{ width: '14rem' }}>
                         <Card.Body>
-                            <Card.Title>Food Name</Card.Title>
-                            <Card.Text>Food Description</Card.Text>
+                            <Card.Title>Protein</Card.Title>
+                            <Card.Text>
+                                <ol>
+                                    <li>{foodDesc(data.dinner?.protein)}</li>
+                                    <li>{foodDesc(data.dinner?.protein2)}</li>
+                                </ol>
+                            </Card.Text>
                         </Card.Body>
                     </Card>
-                    <Card style={{ width: '18rem' }}>
+                    <Card style={{ width: '14rem' }}>
                         <Card.Body>
-                            <Card.Title>Food Name</Card.Title>
-                            <Card.Text>Food Description</Card.Text>
+                            <Card.Title>Taste Enhancer</Card.Title>
+                            <Card.Text>
+                                <ol>
+                                    <li>{foodDesc(data.dinner?.taste_enhancer)}</li>
+                                    <li>{foodDesc(data.dinner?.taste_enhancer2)}</li>
+                                </ol>
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>
+                    <Card style={{ width: '14rem' }}>
+                        <Card.Body>
+                            <Card.Title>Vegetables</Card.Title>
+                            <Card.Text>
+                                <ol>
+                                    <li>{foodDesc(data.dinner?.vegetable)}</li>
+                                    <li>{foodDesc(data.dinner?.vegetable2)}</li>
+                                </ol>
+                            </Card.Text>
                         </Card.Body>
                     </Card>
                 </div>
