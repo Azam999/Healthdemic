@@ -22,6 +22,8 @@ export default function RegisterPage() {
 
   return (
     <Container>
+      <Button className="mt-3 mb-3" variant="primary" href="/">❮</Button>
+      <h1>Register</h1>
       <Form>
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>Name</Form.Label>
