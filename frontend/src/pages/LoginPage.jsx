@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { Button, Container, Form } from 'react-bootstrap';
+import React, { useState } from "react";
+import axios from "axios";
+import { Button, Container, Form } from "react-bootstrap";
 
 export default function LoginPage() {
-    const [email, setEmail] = useState(null);
-    const [password, setPassword] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
 
   async function handleLogin() {
     const res = await axios.post("/api/auth/login", {
       email: email,
       password: password,
     });
+    res.data.accessToken && localStorage.setItem("token", res.data.accessToken);
   }
 
   return (
@@ -32,7 +33,7 @@ export default function LoginPage() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Button variant="primary" type="submit" onClick={async() => await handleLogin()}>
+        <Button variant="primary" type="submit" onClick={handleLogin}>
           Login
         </Button>
       </Form>
