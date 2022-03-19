@@ -6,14 +6,18 @@ export default function LoginPage() {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
 
-  async function handleLogin() {
+  async function handleLogin(e) {
+    e.preventDefault();
     const res = await axios.post("/api/auth/login", {
       email: email,
       password: password,
     });
-    res.data.accessToken && localStorage.setItem("token", res.data.accessToken);
-  }
 
+    if (res.data.accessToken) {
+      localStorage.setItem("token", res.data.accessToken);
+    }
+  }
+  console.log(localStorage.getItem("token"))
   return (
     <Container>
       <Form>
@@ -33,7 +37,7 @@ export default function LoginPage() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Button variant="primary" type="submit" onClick={handleLogin}>
+        <Button variant="primary" type="submit" onClick={(e) => handleLogin(e)}>
           Login
         </Button>
       </Form>

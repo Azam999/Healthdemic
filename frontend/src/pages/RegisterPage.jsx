@@ -7,19 +7,23 @@ export default function RegisterPage() {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
 
-  async function handleRegister() {
+  async function handleRegister(e) {
+    e.preventDefault();
     const res = await axios.post("/api/auth/register", {
       name: name,
       email: email,
       password: password,
     });
-    res.data.accessToken && localStorage.setItem("token", res.data.accessToken);
+
+    if (res.data.accessToken) {
+      localStorage.setItem("token", res.data.accessToken);
+    }
   }
 
   return (
     <Container>
       <Form>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>Name</Form.Label>
           <Form.Control
             placeholder="Enter name"
@@ -42,7 +46,7 @@ export default function RegisterPage() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Button variant="primary" type="submit" onClick={handleRegister}>
+        <Button variant="primary" type="submit" onClick={(e) => handleRegister(e)}>
           Register
         </Button>
       </Form>
