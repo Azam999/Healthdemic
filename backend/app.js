@@ -11,6 +11,7 @@ dotenv.config();
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
+const featuresRouter = require('./routes/features');
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(express.urlencoded({ extended: false }));
 router.use('/', indexRouter);
 router.use('/users', usersRouter);
 router.use('/auth', authRouter);
+router.use('/features', featuresRouter);
 app.use('/api', router);
 app.use('*', (req, res) => {
   res.status(404).send({
