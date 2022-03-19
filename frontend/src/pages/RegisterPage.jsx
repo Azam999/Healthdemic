@@ -6,9 +6,9 @@ export default function RegisterPage() {
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
-
-  function handleRegister() {
-    axios.post("/api/auth/register", {
+  
+  async function handleRegister() {
+    const res = await axios.post("/api/auth/register", {
       name: name,
       email: email,
       password: password,

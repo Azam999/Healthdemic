@@ -6,8 +6,8 @@ export default function LoginPage() {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
 
-  function handleRegister() {
-    axios.post("/api/auth/register", {
+  async function handleLogin() {
+    const res = await axios.post("/api/auth/login", {
       email: email,
       password: password,
     });
@@ -32,8 +32,8 @@ export default function LoginPage() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Button variant="primary" type="submit" onClick={handleRegister}>
-          Register
+        <Button variant="primary" type="submit" onClick={async() => await handleLogin()}>
+          Login
         </Button>
       </Form>
     </Container>
