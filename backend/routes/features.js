@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const { spawn } = require('child_process');
-const { PythonShell } = require('python-shell');
+const { spawn } = require("child_process");
+const { PythonShell } = require("python-shell");
+require("dotenv").config();
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
@@ -14,10 +15,10 @@ router.get("/diet-generator", function (req, res) {
     let { weight, height, age, gender, phys_act } = req.query;
 
     let options = {
-        mode: 'json',
-        pythonPath: 'python',
-        pythonOptions: ['-u'], // get print results in real-time
-        scriptPath: '../python',
+        mode: "json",
+        pythonPath: "python",
+        pythonOptions: ["-u"], // get print results in real-time
+        scriptPath: "../python",
         args: [weight, height, age, gender, phys_act],
     };
 
@@ -32,7 +33,7 @@ router.get("/diet-reminders", (req, res) => {
     client.messages
         .create({
             body: "Hi there", // TODO: FILL WITH REQ
-            from: "+13015757997",
+            from: "+12346574087",
             to: "+13015757997", // TODO: FILL IN WITH REQ
         })
         .then((message) => console.log(message.sid));
