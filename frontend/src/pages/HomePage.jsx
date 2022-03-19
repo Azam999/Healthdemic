@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Navbar, Nav, Card } from 'react-bootstrap';
-import { Route, Routes } from 'react-router-dom';
+import getName from '../utils/getName';
 
 export default function HomePage() {
+    const [name, setName] = useState('');
+    useEffect(() => {
+        getName().then(res => setName(res));
+    }, []);
+
     return (
         <>
             <Navbar bg='light' variant='light'>
@@ -83,6 +88,7 @@ export default function HomePage() {
                         </Card.Body>
                     </Card>
                 </div>
+                <h2 className="text-center mt-5">{name ? `Hello ${name}!` : "Hello! Please sign in!"}</h2>
             </Container>
         </>
     );
