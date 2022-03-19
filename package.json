@@ -1,6 +1,11 @@
 {
   "name": "healthhacks22",
   "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
   "scripts": {
     "start": "cd backend && yarn && node app.js",
     "heroku-postbuild": "cd frontend && yarn --production=false && yarn run build",
