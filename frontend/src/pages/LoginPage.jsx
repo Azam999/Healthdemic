@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { Button, Container, Form } from "react-bootstrap";
+import React, { useState } from 'react';
+import axios from 'axios';
+import { Button, Container, Form } from 'react-bootstrap';
 
 export default function LoginPage() {
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
+    const [email, setEmail] = useState(null);
+    const [password, setPassword] = useState(null);
 
   async function handleLogin() {
     const res = await axios.post("/api/auth/login", {
