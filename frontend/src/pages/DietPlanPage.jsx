@@ -12,12 +12,11 @@ export default function DietPlanPage() {
 
     async function getDietData(e) {
         e.preventDefault();
-        const res = await axios
-            .get(
-                `http://localhost:4000/api/features/diet-generator?weight=${weight}&height=${height}&age=${age}&gender=${gender}&phys_act=${physAct}`
-            )
-            setData(res.data);
-            console.log(res.data);
+        const res = await axios.get(
+            `http://localhost:4000/api/features/diet-generator?weight=${weight}&height=${height}&age=${age}&gender=${gender}&phys_act=${physAct}`
+        );
+        setData(res.data);
+        console.log(res.data);
     }
 
     function foodDesc(food) {
@@ -29,8 +28,10 @@ export default function DietPlanPage() {
     }
 
     return (
-        <Container className="mb-5">
-            <Button className="mt-3 mb-3" variant="primary" href="/">❮</Button>
+        <Container className='mb-5'>
+            <Button className='mt-3 mb-3' variant='primary' href='/'>
+                ❮
+            </Button>
             <h1>Diet Planner</h1>
             <div className='mb-5'>
                 <Form>
@@ -99,19 +100,25 @@ export default function DietPlanPage() {
                     <Card style={{ width: '14rem' }}>
                         <Card.Body>
                             <Card.Title>Fruit</Card.Title>
-                            <Card.Text>{foodDesc(data.breakfast?.fruit)}</Card.Text>
+                            <Card.Text>
+                                {foodDesc(data.breakfast?.fruit)}
+                            </Card.Text>
                         </Card.Body>
                     </Card>
                     <Card style={{ width: '14rem' }}>
                         <Card.Body>
                             <Card.Title>Grains</Card.Title>
-                            <Card.Text>{foodDesc(data.breakfast?.grains)}</Card.Text>
+                            <Card.Text>
+                                {foodDesc(data.breakfast?.grains)}
+                            </Card.Text>
                         </Card.Body>
                     </Card>
                     <Card style={{ width: '14rem' }}>
                         <Card.Body>
                             <Card.Title>Protein</Card.Title>
-                            <Card.Text>{foodDesc(data.breakfast?.protein)}</Card.Text>
+                            <Card.Text>
+                                {foodDesc(data.breakfast?.protein)}
+                            </Card.Text>
                         </Card.Body>
                     </Card>
                 </div>
@@ -123,7 +130,9 @@ export default function DietPlanPage() {
                     <Card style={{ width: '14rem' }}>
                         <Card.Body>
                             <Card.Title>Snack</Card.Title>
-                            <Card.Text>{foodDesc(data.snack1?.snack)}</Card.Text>
+                            <Card.Text>
+                                {foodDesc(data.snack1?.snack)}
+                            </Card.Text>
                         </Card.Body>
                     </Card>
                 </div>
@@ -141,7 +150,9 @@ export default function DietPlanPage() {
                     <Card style={{ width: '14rem' }}>
                         <Card.Body>
                             <Card.Title>Grains</Card.Title>
-                            <Card.Text>{foodDesc(data.lunch?.grains)}</Card.Text>
+                            <Card.Text>
+                                {foodDesc(data.lunch?.grains)}
+                            </Card.Text>
                         </Card.Body>
                     </Card>
                     <Card style={{ width: '14rem' }}>
@@ -158,7 +169,9 @@ export default function DietPlanPage() {
                     <Card style={{ width: '14rem' }}>
                         <Card.Body>
                             <Card.Title>Taste Enhancer</Card.Title>
-                            <Card.Text>{foodDesc(data.lunch?.taste_enhancer)}</Card.Text>
+                            <Card.Text>
+                                {foodDesc(data.lunch?.taste_enhancer)}
+                            </Card.Text>
                         </Card.Body>
                     </Card>
                     <Card style={{ width: '14rem' }}>
@@ -182,13 +195,17 @@ export default function DietPlanPage() {
                     <Card style={{ width: '14rem' }}>
                         <Card.Body>
                             <Card.Title>Snack</Card.Title>
-                            <Card.Text>{foodDesc(data.snack2?.snack)}</Card.Text>
+                            <Card.Text>
+                                {foodDesc(data.snack2?.snack)}
+                            </Card.Text>
                         </Card.Body>
                     </Card>
                     <Card style={{ width: '14rem' }}>
                         <Card.Body>
                             <Card.Title>Vegetables</Card.Title>
-                            <Card.Text>{foodDesc(data.snack2?.vegetable)}</Card.Text>
+                            <Card.Text>
+                                {foodDesc(data.snack2?.vegetable)}
+                            </Card.Text>
                         </Card.Body>
                     </Card>
                 </div>
@@ -224,8 +241,12 @@ export default function DietPlanPage() {
                             <Card.Title>Taste Enhancer</Card.Title>
                             <Card.Text>
                                 <ol>
-                                    <li>{foodDesc(data.dinner?.taste_enhancer)}</li>
-                                    <li>{foodDesc(data.dinner?.taste_enhancer2)}</li>
+                                    <li>
+                                        {foodDesc(data.dinner?.taste_enhancer)}
+                                    </li>
+                                    <li>
+                                        {foodDesc(data.dinner?.taste_enhancer2)}
+                                    </li>
                                 </ol>
                             </Card.Text>
                         </Card.Body>

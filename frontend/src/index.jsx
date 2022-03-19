@@ -5,6 +5,8 @@ import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import Error404Page from './pages/Error404Page';
 import DietPlanPage from './pages/DietPlanPage';
+import MentalHealthBotPage from './pages/MentalHealthBotPage';
+import FitnessTrackerPage from './pages/FitnessTrackerPage';
 import HomePage from './pages/HomePage';
 
 ReactDOM.render(
@@ -14,6 +16,8 @@ ReactDOM.render(
             <Route exact path='/register' element={<RegisterPage />} />
             <Route exact path='/login' element={<LoginPage />} />
             <Route exact path='/diet-plan' element={<DietPlanPage />} />
+            <Route exact path='/mental-health-bot' element={<MentalHealthBotPage />} />
+            <Route exact path='/fitness-tracker' element={<FitnessTrackerPage />} />
             <Route path='*' element={<Error404Page />} />
         </Routes>
     </BrowserRouter>,
