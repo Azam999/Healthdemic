@@ -2,16 +2,16 @@ from random import randint
 import json
 import sys
 
-protein = ['Yogurt(1 cup)', 'Cooked meat(85g)', 'Cooked fish(100g)',
-           '1 whole egg + 4 egg whites', 'Tofu(125g)']
-fruit = ['Berries(80g)', 'Apple', 'Orange', 'Banana',
-         'Dried Fruit(Handfull)', 'Fruit Juice(125ml)']
-vegetable = ['Any vegetable(80g)', 'Leafy greens(Any Amount)']
-grains = ['Cooked Grain(150g)', 'Whole Grain Bread(1 slice)',
-          'Half Large Potato(75g)', 'Oats(250g)', '2 corn tortillas']
-protein_snack = ['Soy nuts(30g)', 'Low fat milk(250ml)', 'Hummus(4 Tbsp)',
-                 'Cottage cheese (125g)', 'Flavored yogurt(125g)']
-taste_enhancer = ['2 TSP (10 ml) olive oil', '2 TBSP (30g) reduced-calorie salad dressin', '1/4 medium avocado',
+protein = ['Yogurt (1 cup)', 'Cooked meat (85g)', 'Cooked fish (100g)',
+           '1 whole egg + 4 egg whites', 'Tofu (125g)']
+fruit = ['Berries (80g)', 'Apple', 'Orange', 'Banana',
+         'Dried Fruit (Handful)', 'Fruit Juice (125ml)']
+vegetable = ['Any vegetable (80g)', 'Leafy greens (Any Amount)']
+grains = ['Cooked Grain (150g)', 'Whole Grain Bread (1 slice)',
+          'Half Large Potato (75g)', 'Oats (250g)', '2 corn tortillas']
+protein_snack = ['Soy nuts (30g)', 'Low fat milk (250ml)', 'Hummus (4 Tbsp)',
+                 'Cottage cheese (125g)', 'Flavored yogurt (125g)']
+taste_enhancer = ['2 TSP (10 ml) olive oil', '2 TBSP (30g) reduced-calorie salad dressing', '1/4 medium avocado',
                   'Small handful of nuts', '1/2 ounce  grated Parmesan cheese', '1 TBSP (20g) jam, jelly, honey, syrup, sugar']
 tdee = 0
 
@@ -163,7 +163,7 @@ print(json.dumps(plan))
 # 2 = Lightly active (1-3 days/week)
 # 3 = Moderately active (3-5 days/week)
 # 4 = Very active (6-7 days/week)
-# 5 = Super active (twice/day))
+# 5 = Super active (twice/day)
 
 # Output:
 # [breakfast, snack1, lunch, snack2, dinner]
