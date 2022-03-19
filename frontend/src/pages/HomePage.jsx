@@ -5,7 +5,7 @@ import getName from '../utils/getName';
 export default function HomePage() {
     const [name, setName] = useState('');
     useEffect(() => {
-        getName().then(res => setName(res));
+        getName().then((res) => setName(res));
     }, []);
 
     return (
@@ -22,10 +22,20 @@ export default function HomePage() {
                 </Container>
             </Navbar>
             <Container>
-                <h1 className='text-center mt-5 display-1'>
+                <h1 className='text-center mt-5 display-1' style={{fontWeight: 900}}>
                     <b>Healthdemic</b>
                 </h1>
-                <div className='d-flex flex-row justify-content-around mt-5'>
+                <div className='text-center mt-5'>
+                    <img
+                        src='https://img.icons8.com/external-flaticons-lineal-color-flat-icons/512/000000/external-pandemic-new-normal-flaticons-lineal-color-flat-icons-2.png'
+                        width={460}
+                        alt='pandemic'
+                    />
+                </div>
+                <h2 className='text-center mt-5 mb-5' style={{fontWeight: 700}}>
+                    {name ? `Hello ${name}! How would you like to improve your health today?` : 'Hello! Please sign in!'}
+                </h2>
+                <div className='d-flex flex-row justify-content-around mt-5 mb-5'>
                     <Card border='info' style={{ width: '18rem' }}>
                         <Card.Body>
                             <Card.Title>
@@ -88,7 +98,6 @@ export default function HomePage() {
                         </Card.Body>
                     </Card>
                 </div>
-                <h2 className="text-center mt-5">{name ? `Hello ${name}!` : "Hello! Please sign in!"}</h2>
             </Container>
         </>
     );

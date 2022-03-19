@@ -32,11 +32,12 @@ export default function DietPlanPage() {
             <Button className='mt-3 mb-3' variant='primary' href='/'>
                 ❮
             </Button>
-            <h1>Diet Planner</h1>
+            <h1 className="display-4" style={{fontWeight: 800}}>Diet Planner</h1>
+            <h4 className="display-6" style={{fontWeight: 800}}>Information</h4>
             <div className='mb-5'>
                 <Form>
                     <Form.Group className='mb-3' controlId='weight'>
-                        <Form.Label>Weight</Form.Label>
+                        <Form.Label style={{fontWeight: 900}}>Weight</Form.Label>
                         <Form.Control
                             type='text'
                             placeholder='Weight'
@@ -44,7 +45,7 @@ export default function DietPlanPage() {
                         />
                     </Form.Group>
                     <Form.Group className='mb-3' controlId='height'>
-                        <Form.Label>Height</Form.Label>
+                        <Form.Label style={{fontWeight: 900}}>Height</Form.Label>
                         <Form.Control
                             type='text'
                             placeholder='Height'
@@ -52,7 +53,7 @@ export default function DietPlanPage() {
                         />
                     </Form.Group>
                     <Form.Group className='mb-3' controlId='age'>
-                        <Form.Label>Age</Form.Label>
+                        <Form.Label style={{fontWeight: 900}}>Age</Form.Label>
                         <Form.Control
                             type='text'
                             placeholder='Age'
@@ -60,7 +61,7 @@ export default function DietPlanPage() {
                         />
                     </Form.Group>
                     <Form.Group className='mb-3' controlId='gender'>
-                        <Form.Label>Gender</Form.Label>
+                        <Form.Label style={{fontWeight: 900}}>Gender</Form.Label>
                         <Form.Control
                             type='text'
                             placeholder='Gender'
@@ -69,19 +70,19 @@ export default function DietPlanPage() {
                     </Form.Group>
                     <Form.Group className='mb-3' controlId='physAct'>
                         <Form.Label>
-                            Physical Action
+                            <span style={{fontWeight: 900}}>Exercise Amount</span>
                             <br />
                             <ul>
-                                <li>1 - Little to no exercise</li>
-                                <li>2 - Light exercise (1-3 days/week)</li>
-                                <li>3 - Moderate exercise (3-5 days/week)</li>
-                                <li>4 - Heavy exercise (6-7 days/week)</li>
-                                <li>5 - Very heavy exercise (twice/day)</li>
+                                <li>1 = Little to no exercise</li>
+                                <li>2 = Light exercise (1-3 days/week)</li>
+                                <li>3 = Moderate exercise (3-5 days/week)</li>
+                                <li>4 = Heavy exercise (6-7 days/week)</li>
+                                <li>5 = Very heavy exercise (twice/day)</li>
                             </ul>
                         </Form.Label>
                         <Form.Control
                             type='text'
-                            placeholder='Physical Action'
+                            placeholder='Exercise Amount'
                             onChange={(e) => setPhysAct(e.target.value)}
                         />
                     </Form.Group>
@@ -94,20 +95,21 @@ export default function DietPlanPage() {
                     </Button>
                 </Form>
             </div>
+            <h4 className="display-6" style={{fontWeight: 800}}>Plan</h4>
             <div>
-                <h3>Breakfast</h3>
-                <div className='d-flex flex-row justify-content-around'>
-                    <Card style={{ width: '14rem' }}>
+                <h3 style={{fontWeight: 800}}>Breakfast</h3>
+                <div className='d-flex flex-row justify-content-start'>
+                    <Card style={{ width: '14rem' }} className="me-4">
                         <Card.Body>
-                            <Card.Title>Fruit</Card.Title>
+                            <Card.Title style={{fontWeight: 700}}>Fruit</Card.Title>
                             <Card.Text>
                                 {foodDesc(data.breakfast?.fruit)}
                             </Card.Text>
                         </Card.Body>
                     </Card>
-                    <Card style={{ width: '14rem' }}>
+                    <Card style={{ width: '14rem' }} className="me-4">
                         <Card.Body>
-                            <Card.Title>Grains</Card.Title>
+                            <Card.Title style={{fontWeight: 700}}>Grains</Card.Title>
                             <Card.Text>
                                 {foodDesc(data.breakfast?.grains)}
                             </Card.Text>
@@ -115,7 +117,7 @@ export default function DietPlanPage() {
                     </Card>
                     <Card style={{ width: '14rem' }}>
                         <Card.Body>
-                            <Card.Title>Protein</Card.Title>
+                            <Card.Title style={{fontWeight: 700}}>Protein</Card.Title>
                             <Card.Text>
                                 {foodDesc(data.breakfast?.protein)}
                             </Card.Text>
@@ -125,11 +127,11 @@ export default function DietPlanPage() {
             </div>
             <br />
             <div>
-                <h3>Snack 1</h3>
-                <div className='d-flex flex-row justify-content-around'>
+                <h3 style={{fontWeight: 800}}>Snack 1</h3>
+                <div className='d-flex flex-row justify-content-start'>
                     <Card style={{ width: '14rem' }}>
                         <Card.Body>
-                            <Card.Title>Snack</Card.Title>
+                            <Card.Title style={{fontWeight: 700}}>Snack</Card.Title>
                             <Card.Text>
                                 {foodDesc(data.snack1?.snack)}
                             </Card.Text>
@@ -139,25 +141,25 @@ export default function DietPlanPage() {
             </div>
             <br />
             <div>
-                <h3>Lunch</h3>
-                <div className='d-flex flex-row justify-content-around'>
-                    <Card style={{ width: '14rem' }}>
+                <h3 style={{fontWeight: 800}}>Lunch</h3>
+                <div className='d-flex flex-row justify-content-start'>
+                    <Card style={{ width: '14rem' }} className="me-4">
                         <Card.Body>
-                            <Card.Title>Fruit</Card.Title>
+                            <Card.Title style={{fontWeight: 700}}>Fruit</Card.Title>
                             <Card.Text>{foodDesc(data.lunch?.fruit)}</Card.Text>
                         </Card.Body>
                     </Card>
-                    <Card style={{ width: '14rem' }}>
+                    <Card style={{ width: '14rem' }} className="me-4">
                         <Card.Body>
-                            <Card.Title>Grains</Card.Title>
+                            <Card.Title style={{fontWeight: 700}}>Grains</Card.Title>
                             <Card.Text>
                                 {foodDesc(data.lunch?.grains)}
                             </Card.Text>
                         </Card.Body>
                     </Card>
-                    <Card style={{ width: '14rem' }}>
+                    <Card style={{ width: '14rem' }} className="me-4">
                         <Card.Body>
-                            <Card.Title>Protein</Card.Title>
+                            <Card.Title style={{fontWeight: 700}}>Protein</Card.Title>
                             <Card.Text>
                                 <ol>
                                     <li>{foodDesc(data.lunch?.protein)}</li>
@@ -166,9 +168,9 @@ export default function DietPlanPage() {
                             </Card.Text>
                         </Card.Body>
                     </Card>
-                    <Card style={{ width: '14rem' }}>
+                    <Card style={{ width: '14rem' }} className="me-4">
                         <Card.Body>
-                            <Card.Title>Taste Enhancer</Card.Title>
+                            <Card.Title style={{fontWeight: 700}}>Taste Enhancer</Card.Title>
                             <Card.Text>
                                 {foodDesc(data.lunch?.taste_enhancer)}
                             </Card.Text>
@@ -176,7 +178,7 @@ export default function DietPlanPage() {
                     </Card>
                     <Card style={{ width: '14rem' }}>
                         <Card.Body>
-                            <Card.Title>Vegetables</Card.Title>
+                            <Card.Title style={{fontWeight: 700}}>Vegetables</Card.Title>
                             <Card.Text>
                                 <ol>
                                     <li>{foodDesc(data.lunch?.vegetable)}</li>
@@ -190,11 +192,11 @@ export default function DietPlanPage() {
             </div>
             <br />
             <div>
-                <h3>Snack 2</h3>
-                <div className='d-flex flex-row justify-content-around'>
-                    <Card style={{ width: '14rem' }}>
+                <h3 style={{fontWeight: 800}}>Snack 2</h3>
+                <div className='d-flex flex-row justify-content-start'>
+                    <Card style={{ width: '14rem' }} className="me-4">
                         <Card.Body>
-                            <Card.Title>Snack</Card.Title>
+                            <Card.Title style={{fontWeight: 700}}>Snack</Card.Title>
                             <Card.Text>
                                 {foodDesc(data.snack2?.snack)}
                             </Card.Text>
@@ -202,7 +204,7 @@ export default function DietPlanPage() {
                     </Card>
                     <Card style={{ width: '14rem' }}>
                         <Card.Body>
-                            <Card.Title>Vegetables</Card.Title>
+                            <Card.Title style={{fontWeight: 700}}>Vegetables</Card.Title>
                             <Card.Text>
                                 {foodDesc(data.snack2?.vegetable)}
                             </Card.Text>
@@ -212,11 +214,11 @@ export default function DietPlanPage() {
             </div>
             <br />
             <div>
-                <h3>Dinner</h3>
-                <div className='d-flex flex-row justify-content-around'>
-                    <Card style={{ width: '14rem' }}>
+                <h3 style={{fontWeight: 800}}>Dinner</h3>
+                <div className='d-flex flex-row justify-content-start'>
+                    <Card style={{ width: '14rem' }} className="me-4">
                         <Card.Body>
-                            <Card.Title>Grains</Card.Title>
+                            <Card.Title style={{fontWeight: 700}}>Grains</Card.Title>
                             <Card.Text>
                                 <ol>
                                     <li>{foodDesc(data.dinner?.grains)}</li>
@@ -225,9 +227,9 @@ export default function DietPlanPage() {
                             </Card.Text>
                         </Card.Body>
                     </Card>
-                    <Card style={{ width: '14rem' }}>
+                    <Card style={{ width: '14rem' }} className="me-4">
                         <Card.Body>
-                            <Card.Title>Protein</Card.Title>
+                            <Card.Title style={{fontWeight: 700}}>Protein</Card.Title>
                             <Card.Text>
                                 <ol>
                                     <li>{foodDesc(data.dinner?.protein)}</li>
@@ -236,9 +238,9 @@ export default function DietPlanPage() {
                             </Card.Text>
                         </Card.Body>
                     </Card>
-                    <Card style={{ width: '14rem' }}>
+                    <Card style={{ width: '14rem' }} className="me-4">
                         <Card.Body>
-                            <Card.Title>Taste Enhancer</Card.Title>
+                            <Card.Title style={{fontWeight: 700}}>Taste Enhancer</Card.Title>
                             <Card.Text>
                                 <ol>
                                     <li>
@@ -253,7 +255,7 @@ export default function DietPlanPage() {
                     </Card>
                     <Card style={{ width: '14rem' }}>
                         <Card.Body>
-                            <Card.Title>Vegetables</Card.Title>
+                            <Card.Title style={{fontWeight: 700}}>Vegetables</Card.Title>
                             <Card.Text>
                                 <ol>
                                     <li>{foodDesc(data.dinner?.vegetable)}</li>
