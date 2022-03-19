@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Bicep Curls</title>
+        <title>PushUps</title>
         <link rel="icon" href="favicon.ico" />
         <link
             rel="stylesheet"
@@ -13,11 +13,11 @@
         <link
             rel="stylesheet"
             type="text/css"
-            href="main.css"
+            href="/public/css/main.css"
             crossorigin="anonymous"
         />
         <script>
-            const excerciseType = 'bicepCurls';
+            const excerciseType = 'pushUps';
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
@@ -32,10 +32,10 @@
         <div class="row">
             <div class="column">
                 <div class="container" id="canvas"></div>
-                <a href="/public/index.html" class="back">HOME</a>
+                <a href="/fitness-tracker" class="back">HOME</a>
             </div>
             <div class="column">
-                <p class="heading">Biceps Curl</p>
+                <p class="heading">PushUps</p>
                 <div class="content">
                     <span class="right" name="repCount">0</span>
                     <span class="left">Reps Done</span>
@@ -69,7 +69,7 @@
                     </span>
                     <span class="left">Music</span>
                 </div>
-                <button onclick="stopTimer()">End Session</button>
+                <button>End Session</button>
             </div>
         </div>
         <script src="sketch.js"></script>

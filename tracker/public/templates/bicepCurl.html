@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Squats</title>
+        <title>Bicep Curls</title>
         <link rel="icon" href="favicon.ico" />
         <link
             rel="stylesheet"
@@ -13,29 +13,35 @@
         <link
             rel="stylesheet"
             type="text/css"
-            href="/public/css/main.css"
+            href="main.css"
             crossorigin="anonymous"
         />
         <script>
-            const excerciseType = 'squats';
+            const excerciseType = 'bicepCurls';
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.dom.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+        />
         <script src="https://unpkg.com/ml5@0.1.3/dist/ml5.min.js"></script>
         <link rel="stylesheet" type="text/css" href="main.css" />
-        <meta charset="utf-8" />
     </head>
 
     <body>
         <div class="row">
             <div class="column">
                 <div class="container" id="canvas"></div>
-                <a href="index.html" class="back">HOME</a>
+                <a href="/fitness-tracker" class="back">❮</a>
+                <a href="/" class="back">HOME</a>
             </div>
             <div class="column">
-                <p class="heading">Squats</p>
+                <p class="heading">Biceps Curl</p>
                 <div class="content">
                     <span class="right" name="repCount">0</span>
                     <span class="left">Reps Done</span>
@@ -69,7 +75,7 @@
                     </span>
                     <span class="left">Music</span>
                 </div>
-                <button>End Session</button>
+                <button onclick="stopTimer()">End Session</button>
             </div>
         </div>
         <script src="sketch.js"></script>
