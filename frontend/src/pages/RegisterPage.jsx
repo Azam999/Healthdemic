@@ -3,20 +3,21 @@ import axios from 'axios';
 import { Button, Container, Form } from 'react-bootstrap';
 
 export default function RegisterPage() {
-  const [name, setName] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
-  
-  async function handleRegister() {
-    const res = await axios.post("/api/auth/register", {
-      name: name,
-      email: email,
-      password: password,
-    });
-  }
+    const [name, setName] = useState(null);
+    const [email, setEmail] = useState(null);
+    const [password, setPassword] = useState(null);
+
+    async function handleRegister() {
+        const res = await axios.post('/api/auth/register', {
+            name: name,
+            email: email,
+            password: password,
+        });
+    }
 
     return (
         <Container>
+            <h1 className='mt-5'>Register</h1>
             <Form>
                 <Form.Group className='mb-3' controlId='formBasicEmail'>
                     <Form.Label>Name</Form.Label>
