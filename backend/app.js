@@ -2,14 +2,15 @@ const express = require('express');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const cors = require('cors');
 const router = express.Router();
+const cors = require('cors');
 
 // Initialize dotenv
 dotenv.config();
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const authRouter = require('./routes/auth');
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 
 router.use('/', indexRouter);
 router.use('/users', usersRouter);
+router.use('/auth', authRouter);
 app.use('/api', router);
 app.use('*', (req, res) => {
   res.status(404).send({

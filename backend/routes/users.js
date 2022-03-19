@@ -30,8 +30,23 @@ router.get('/:id?', async (req, res) => {
   }
 });
 
-router.patch('/:id', (req, res) => {});
+router.delete('/:id', (req, res) => {
+  const { id } = req.params;
 
-router.delete('/:id', (req, res) => {});
+  User.findByIdAndDelete(id)
+    .then((user) => {
+      if (user) {
+        res.status(200).json({
+          user,
+          message: 'User successfully deleted',
+        });
+      }
+    })
+    .catch(() => {
+      res.status(400).json({
+        message: 'There was an error deleting the user',
+      });
+    });
+});
 
 module.exports = router;
