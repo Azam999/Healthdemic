@@ -146,7 +146,7 @@ gender = sys.argv[4]
 phys_act = sys.argv[5]
 
 plan = generate_plan(int(weight), int(height), int(age), gender, int(phys_act))
-print(json.dumps(plan, indent=4, sort_keys=True))
+print(json.dumps(plan))
 
 # x = generate_plan(70, 190, 9, 'Male', 4)
 # print(json.dumps(x, indent=4, sort_keys=True))
