@@ -4,12 +4,13 @@
   "private": true,
   "workspaces": [
     "frontend",
-    "backend"
+    "backend",
+    "tracker"
   ],
   "scripts": {
     "start": "cd backend && yarn && node app.js",
     "heroku-postbuild": "cd frontend && yarn --production=false && yarn run build",
-    "dev": "concurrently -i \"cd backend && yarn dev\" \"cd frontend && yarn start\""
+    "dev": "concurrently -i \"cd backend && yarn dev\" \"cd frontend && yarn start\" \"cd tracker && yarn start\""
   },
   "keywords": [],
   "author": "",
