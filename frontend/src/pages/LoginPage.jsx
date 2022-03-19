@@ -1,23 +1,28 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Button, Container, Form } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
+  const navigate = useNavigate();
 
   async function handleLogin(e) {
     e.preventDefault();
-    const res = await axios.post("/api/auth/login", {
-      email: email,
-      password: password,
-    });
+    const res = await axios
+      .post("/api/auth/login", {
+        email: email,
+        password: password,
+      })
+      .catch((err) => console.log(err));
 
-    if (res.data.accessToken) {
+    if (res?.data.accessToken) {
       localStorage.setItem("token", res.data.accessToken);
+      navigate("/");
     }
   }
-  console.log(localStorage.getItem("token"))
+
   return (
     <Container>
       <Form>
