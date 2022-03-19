@@ -37,7 +37,7 @@ export default function DietPlanPage() {
             <div className='mb-5'>
                 <Form>
                     <Form.Group className='mb-3' controlId='weight'>
-                        <Form.Label style={{fontWeight: 900}}>Weight</Form.Label>
+                        <Form.Label style={{fontWeight: 900}}>Weight (kg)</Form.Label>
                         <Form.Control
                             type='text'
                             placeholder='Weight'
@@ -45,7 +45,7 @@ export default function DietPlanPage() {
                         />
                     </Form.Group>
                     <Form.Group className='mb-3' controlId='height'>
-                        <Form.Label style={{fontWeight: 900}}>Height</Form.Label>
+                        <Form.Label style={{fontWeight: 900}}>Height (cm)</Form.Label>
                         <Form.Control
                             type='text'
                             placeholder='Height'
