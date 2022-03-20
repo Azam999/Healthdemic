@@ -56,22 +56,22 @@ router.get('/chatbot', async (req, res) => {
 
     const conditions = {
         'Clinical depression':
-            'A mental health disorder characterized by persistently depressed mood or loss of interest in activities, causing significant impairment in daily life.',
+            'a mental health disorder characterized by persistently depressed mood or loss of interest in activities, causing significant impairment in daily life.',
         'Anxiety disorder':
-            "A mental health disorder characterized by feelings of worry, anxiety, or fear that are strong enough to interfere with one's daily activities",
+            "a mental health disorder characterized by feelings of worry, anxiety, or fear that are strong enough to interfere with one's daily activities",
         'Bipolar disorder':
-            'A disorder associated with episodes of mood swings ranging from depressive lows to manic highs.',
+            'a disorder associated with episodes of mood swings ranging from depressive lows to manic highs.',
         Dementia:
-            'A group of thinking and social symptoms that interferes with daily functioning.',
+            'a group of thinking and social symptoms that interferes with daily functioning.',
         'Attention-deficit/hyperactivity disorder':
-            'A chronic condition including attention difficulty, hyperactivity, and impulsiveness.',
+            'a chronic condition including attention difficulty, hyperactivity, and impulsiveness.',
         Schizophrenia:
-            "A disorder that affects a person's ability to think, feel, and behave clearly.",
+            "a disorder that affects a person's ability to think, feel, and behave clearly.",
         'Obsessive compulsive disorder':
             'Excessive thoughts (obsessions) that lead to repetitive behaviors (compulsions).',
-        Autism: 'A serious developmental disorder that impairs the ability to communicate and interact.',
+        Autism: 'a serious developmental disorder that impairs the ability to communicate and interact.',
         'Post traumatic stress disorder (PTSD)':
-            'A disorder in which a person has difficulty recovering after experiencing or witnessing a terrifying event.',
+            'a disorder in which a person has difficulty recovering after experiencing or witnessing a terrifying event.',
     };
 
     const condition_names = Object.keys(conditions);
@@ -88,7 +88,7 @@ router.get('/chatbot', async (req, res) => {
                 if (condition.toLowerCase().includes(keyword)) {
                     return res.json({
                         condition,
-                        message: conditions[condition],
+                        message: `${condition} is ${conditions[condition]}`,
                     });
                 }
             }
@@ -98,7 +98,7 @@ router.get('/chatbot', async (req, res) => {
     const result = sentiment.analyze(message);
 
     // If negative and not a key word
-    if (result.score <= 0) {
+    if (result.score < 0) {
         res.json({
             message:
                 positive_messages[
