@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { spawn } = require("child_process");
 const { PythonShell } = require("python-shell");
+const Sentiment = require('sentiment');
 require("dotenv").config();
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
