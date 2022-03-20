@@ -19,6 +19,7 @@
     "concurrently": "^7.0.0"
   },
   "dependencies": {
-    "python-shell": "^3.0.1"
+    "python-shell": "^3.0.1",
+    "typeface-montserrat": "^1.1.13"
   }
 }

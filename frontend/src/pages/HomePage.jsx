@@ -26,17 +26,13 @@ export default function HomePage() {
                     <b>Healthdemic</b>
                 </h1>
                 <div className='text-center mt-5'>
-                    <img
-                        src='https://img.icons8.com/external-flaticons-lineal-color-flat-icons/512/000000/external-pandemic-new-normal-flaticons-lineal-color-flat-icons-2.png'
-                        width={460}
-                        alt='pandemic'
-                    />
+                   
                 </div>
                 <h2 className='text-center mt-5 mb-5' style={{fontWeight: 700}}>
                     {name ? `Hello ${name}! How would you like to improve your health today?` : 'Hello! Please sign in!'}
                 </h2>
                 <div className='d-flex flex-row justify-content-around mt-5 mb-5'>
-                    <Card border='info' style={{ width: '18rem' }}>
+                    <Card border='info' style={{ width: '22rem' }}>
                         <Card.Body>
                             <Card.Title>
                                 <img
@@ -56,7 +52,7 @@ export default function HomePage() {
                             </Card.Text>
                         </Card.Body>
                     </Card>
-                    <Card border='info' style={{ width: '18rem' }}>
+                    <Card border='info' style={{ width: '22rem' }}>
                         <Card.Body>
                             <Card.Title>
                                 <img
@@ -76,7 +72,7 @@ export default function HomePage() {
                             </Card.Text>
                         </Card.Body>
                     </Card>
-                    <Card border='info' style={{ width: '18rem' }}>
+                    <Card border='info' style={{ width: '22rem' }}>
                         <Card.Body>
                             <Card.Title>
                                 <img
