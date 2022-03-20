@@ -16,6 +16,7 @@
         "mongoose": "^6.2.7",
         "morgan": "~1.9.1",
         "python-shell": "^3.0.1",
+        "sentiment": "^5.0.2",
         "twilio": "^3.75.1"
     },
     "devDependencies": {
