@@ -2,7 +2,7 @@
 .heading {
     font-family: 'Montserrat';
     text-align: center;
-    color: rgb(31, 22, 160);
+    color: rgb(0, 0, 0);
     font-size: 60px;
     margin-top: 20px;
 }
@@ -40,7 +40,7 @@
     float: left;
     font-size: 30px;
     font-family: 'Montserrat';
-    color: rgb(31, 22, 160);
+    color: rgb(0, 0, 0);
 }
 .switch {
     position: relative;
@@ -133,5 +133,5 @@ button:hover {
     margin-left: 40%;
     font-size: 30px;
     text-decoration: none;
-    color: rgb(31, 22, 160);
+    color: rgb(0, 0, 0);
 }
