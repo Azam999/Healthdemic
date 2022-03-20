@@ -52,7 +52,7 @@ export default function HomePage() {
                                 </a>
                             </Card.Title>
                             <Card.Text>
-                                Track different types of fitness activities.
+                                Track different types of fitness activities (bicep curls, squats, push-ups, sit-ups).
                             </Card.Text>
                         </Card.Body>
                     </Card>
@@ -72,8 +72,7 @@ export default function HomePage() {
                                 </a>
                             </Card.Title>
                             <Card.Text>
-                                Have a diet plan generated for you with the
-                                power of AI.
+                                Have a diet plan automatically generated for you.
                             </Card.Text>
                         </Card.Body>
                     </Card>
@@ -93,7 +92,7 @@ export default function HomePage() {
                                 </a>
                             </Card.Title>
                             <Card.Text>
-                                Improve mental health with a chat bot.
+                                Improve your mental health with a bot.
                             </Card.Text>
                         </Card.Body>
                     </Card>
